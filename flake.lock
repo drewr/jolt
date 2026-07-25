@@ -1,0 +1,112 @@
+{
+  "nodes": {
+    "babashka-fs": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1783722973,
+        "narHash": "sha256-cMUQmVOR6zxd96ndnQ9UXkit9Nt39eZzfI9HmQRsLtE=",
+        "owner": "babashka",
+        "repo": "fs",
+        "rev": "5b273b8a943a622593fbc85fca6761c5a39d6d66",
+        "type": "github"
+      },
+      "original": {
+        "owner": "babashka",
+        "repo": "fs",
+        "type": "github"
+      }
+    },
+    "babashka-process": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1777121079,
+        "narHash": "sha256-BnMq4VCqPdY/DZZRJdhn4k0SZNAKtLqumwznq4im9vI=",
+        "owner": "babashka",
+        "repo": "process",
+        "rev": "43bdd65e189f2ccacc56662c53a21f5470ff1500",
+        "type": "github"
+      },
+      "original": {
+        "owner": "babashka",
+        "repo": "process",
+        "type": "github"
+      }
+    },
+    "clojure-test-suite": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1784915091,
+        "narHash": "sha256-Xd3RG0O81HNyQpYAinJ7KxpaPNub4Ml5DOOEooFSc2U=",
+        "owner": "jank-lang",
+        "repo": "clojure-test-suite",
+        "rev": "2b305490636570d589426ee91f8c08f602b070e0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jank-lang",
+        "repo": "clojure-test-suite",
+        "type": "github"
+      }
+    },
+    "irregex": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1770512408,
+        "narHash": "sha256-eii7VP3sJuirqxz3SbUorN/Xe+USan6AEjBI1qXt36c=",
+        "owner": "ashinn",
+        "repo": "irregex",
+        "rev": "c948a704fc732914a243c1643bfe359913d11c7b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ashinn",
+        "repo": "irregex",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1784842214,
+        "narHash": "sha256-5RtCAzg/n1n2Yp0mtDiZzZFJzvqR4jHleWeqD7b5G14=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "91cc1fdf6831e29b6c98768e721a72241f3d0797",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "babashka-fs": "babashka-fs",
+        "babashka-process": "babashka-process",
+        "clojure-test-suite": "clojure-test-suite",
+        "irregex": "irregex",
+        "nixpkgs": "nixpkgs",
+        "sci": "sci"
+      }
+    },
+    "sci": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1784998876,
+        "narHash": "sha256-dE0isY3aAENaygHSOWRfDQTGq0Gr7b5j83BVg0OXaKs=",
+        "owner": "borkdude",
+        "repo": "sci",
+        "rev": "64163c4560e085ffdcf47951b406f62f753b7f4c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "borkdude",
+        "repo": "sci",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

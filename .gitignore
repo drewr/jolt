@@ -11,6 +11,9 @@ target/
 .calva/
 test/_*.janet
 
+# Nix
+result/
+
 # Beads / Dolt files (added by bd init)
 .dolt/
 *.db

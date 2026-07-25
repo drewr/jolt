@@ -25,6 +25,8 @@ do
 done <<EOF
 chez
 chezscheme
+scheme
+petite
 EOF
 
 # If we failed to find one, whinge and exit.
