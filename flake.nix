@@ -16,7 +16,7 @@
     clojure-test-suite.flake = false;
   };
 
-  outputs = { self, nixpkgs, irregex, babashka-fs, babashka-process, sci, clojure-test-suite }:
+   outputs = { self, nixpkgs, irregex, babashka-fs, babashka-process, sci, clojure-test-suite }:
     let
       supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
 
@@ -54,6 +54,7 @@
         in
         pkgs.stdenv.mkDerivation {
           name = "jolt";
+          version = "0.4.16";  # Update when tagging
           src = jolt-src;
 
           nativeBuildInputs = [ chez-wrapper pkgs.chez pkgs.gcc pkgs.git pkgs.unzip
@@ -61,6 +62,7 @@
                                 pkgs.xxd ];
 
           JOLT_CHEZ_CSV = chez-csv;
+          JOLT_VERSION = "${pkgs.lib.fileContents "${self.outPath}/VERSION"}";
 
           buildPhase = ''
             make jolt-release
