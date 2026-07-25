@@ -22,7 +22,7 @@
 
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-      mkPackage = system:
+     mkPackage = system:
         let
           pkgs = import nixpkgs { inherit system; };
           # Map nixpkgs system to Chez Scheme CSV machine directory
@@ -33,6 +33,12 @@
             else throw "Unsupported system: ${system}";
           chez-csv = "${pkgs.chez}/lib/csv10.4.1/${chez-machine}";
           chez-wrapper = pkgs.writeShellScriptBin "chez" "exec ${pkgs.chez}/bin/scheme \"$@\"";
+          # Get version the same way bin/jolt does: git describe --tags --always --dirty
+          jolt-version = pkgs.lib.removeSuffix "\n" (pkgs.lib.fileContents (
+            pkgs.runCommand "jolt-version" { nativeBuildInputs = [ pkgs.git ]; } ''
+              git -C ${./.} describe --tags --always --dirty > $out 2>/dev/null || echo "dev" > $out
+            ''
+          ));
 
           # Copy source and symlink vendor/ submodules
           jolt-src = pkgs.stdenv.mkDerivation {
@@ -54,7 +60,6 @@
         in
         pkgs.stdenv.mkDerivation {
           name = "jolt";
-          version = "0.4.16";  # Update when tagging
           src = jolt-src;
 
           nativeBuildInputs = [ chez-wrapper pkgs.chez pkgs.gcc pkgs.git pkgs.unzip
@@ -62,7 +67,7 @@
                                 pkgs.xxd ];
 
           JOLT_CHEZ_CSV = chez-csv;
-          JOLT_VERSION = "${pkgs.lib.fileContents "${self.outPath}/VERSION"}";
+          JOLT_VERSION = jolt-version;
 
           buildPhase = ''
             make jolt-release
