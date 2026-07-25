@@ -12,7 +12,7 @@ target/
 test/_*.janet
 
 # Nix
-result/
+/result
 
 # Beads / Dolt files (added by bd init)
 .dolt/
